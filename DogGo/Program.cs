@@ -1,4 +1,5 @@
 using DogGo.Repositories;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +10,9 @@ builder.Services.AddTransient<IOwnerRepository, OwnerRepository>();
 builder.Services.AddTransient<IDogRepository, DogRepository>();
 builder.Services.AddTransient<INeighborhoodRepository, NeighborhoodRepository>();
 builder.Services.AddTransient<IWalkRepository, WalkRepository>();
+
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+        .AddCookie(options => options.LoginPath = "/Owners/LogIn");
 
 var app = builder.Build();
 
