@@ -7,5 +7,6 @@
         public int Duration { get; set; }
         public int WalkerId { get; set; }
         public int DogId { get; set; }
+        public TimeSpan DurationInMin { get => TimeSpan.FromSeconds(Duration); }
     }
 }

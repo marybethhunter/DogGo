@@ -46,13 +46,23 @@
             </div>
             <div>
               <label class="font-weight-bold">Duration:</label>
-              <p>@walk.Duration</p>
+              <p>@walk.DurationInMin</p>
             </div>
           </div>
         </div>
         }
       </div>
     </section>
+</div>
+
+<div class="row">
+    <section class="col-8 container mt-5">
+      <h1 class="text-left">Total Walk Time:</h1>
+            @foreach (Walks walk in Model.Walks)
+            {
+                <h2>@walk.DurationInMin</h2>
+            }
+        </section>
 </div>
     @Html.ActionLink("Edit", "Edit", new { id = Model.Walker.Id }) |
     <a asp-action="Index">Back to List</a>
